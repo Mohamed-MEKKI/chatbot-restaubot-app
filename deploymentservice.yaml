@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: whatsapp-chatbot
+  name: nodeapp-service
+spec:
+  selector:
+    app: nodeserver
+  type: LoadBalancer
+  
+  ports:
+  - protocol: TCP
+    port: 8888
+    targetPort: 8888
+    nodePort: 30000

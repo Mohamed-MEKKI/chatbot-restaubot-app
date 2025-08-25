@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: whatsapp-chatbot
+  name: nodeserver
+spec:
+  replicas: 1
+  selector:
+    selector:
+      matchLabels:
+      app: nodeserver
+  template:
+    metadata:
+      labels:
+        app: nodeserver
+    spec:
+      containers:
+      - name: nodeserver
+        env:
+        - name: PORT
+          value: "8888"
+        - 
+        image: moham21/chatbot-app
+        resources:
+          requests:
+            memory: "250Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8888
