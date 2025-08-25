@@ -106,22 +106,6 @@ app.post('/webhook', async (req, res) => {
 
             const textReceived = detectIntent(messageText)
 
-            /*let prod = {
-                name: 'shoes', 
-                description: 'Running shoes',
-            }*/
-           let product = {
-                "name": "",
-                "email": "oliver@outlook.fr",
-                "address": "France",
-                "phone": "",
-                "items": "",
-                "total": ""
-            }
-
-            //const paiementhandlers = new PaiementHandler(prod, 1000)
-            let productName = ""
-
 
             switch(textReceived){
 
@@ -134,7 +118,7 @@ app.post('/webhook', async (req, res) => {
                 case(messageType.ORDER):
                     let customerPhoneNumber = value.contacts[0]?.wa_id 
                     let customerName =value.contacts[0]?.profile?.name
-                    productName = await messageIntent.ordersHandler(messageText, customerName, customerPhoneNumber)
+                    await messageIntent.ordersHandler(messageText, customerName, customerPhoneNumber)
                     messageToBeSend = "Thank you for your order! To proceed with the payment, please type 'payment'."
                     break;
                 

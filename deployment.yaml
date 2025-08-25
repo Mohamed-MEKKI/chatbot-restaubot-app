@@ -19,6 +19,12 @@ spec:
         env:
         - name: PORT
           value: "8888"
+        
+        - name: DB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              key: DB_DATABASE
+              name: web-env
         - 
         image: moham21/chatbot-app
         resources:

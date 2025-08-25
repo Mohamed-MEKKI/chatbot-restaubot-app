@@ -80,8 +80,6 @@ export default class MessageHandler extends ProjectController {
 
         this.createItem("order", orderItems)
 
-        return jsonData.items[0]
-
     }
 
     /** Handles payment requests and returns AI response with a payment link */

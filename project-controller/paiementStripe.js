@@ -1,9 +1,12 @@
 import Stripe from "stripe"
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default class paiementHandler{
     
     constructor(products, totalPrice){
-        this.stripe = Stripe('sk_test_51RHPNdFs6smfAR6cv96lJOa1R6oKebaBghrJ4OB0NQyNtKcAhs283hfllD4FbBlpTX1nQ5rFLqkCnTOQ64QgQxyY00wVHGvL7k')
+        this.stripe = Stripe(process.env.STRIPE_API_KEY)
         this.products = products
         this.totalPrice = totalPrice
     }

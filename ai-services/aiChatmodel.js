@@ -4,7 +4,6 @@ import { OpenAI } from "openai";
 export default async function getLlamaResponse(systemPrompt,prompt) {
     const client = new OpenAI({
         baseURL: 'http://localhost:11434/v1',
-        apiKey: "ollama"
         });
 
     const completion = await client.chat.completions.create({
