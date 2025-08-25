@@ -6,7 +6,7 @@ dotenv.config();
 export default class paiementHandler{
     
     constructor(products, totalPrice){
-        this.stripe = Stripe(process.env.STRIPE_API_KEY)
+        this.stripe = Stripe(process.env.STRIPE_APIKEY)
         this.products = products
         this.totalPrice = totalPrice
     }
